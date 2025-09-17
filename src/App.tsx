@@ -139,18 +139,71 @@ function parseTimeToMinutes(timeStr: string): number {
   return hours * 60 + minutes;
 }
 
+// функция для определения типа недели
+function getCurrentWeekType(): boolean {
+  const referenceDate = new Date('2025-09-01'); // опорная дата - начало семестра, всегда числитель
+  const currentDate = new Date();
+  
+  const timeDiff = currentDate.getTime() - referenceDate.getTime();
+  const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+
+  const weekNumber = Math.floor(daysDiff / 7);
+  return weekNumber % 2 === 1;
+}
+
+function getWeekInfo(): { weekNumber: number; isDenominator: boolean; weekType: string } {
+  const referenceDate = new Date('2024-09-01');
+  const currentDate = new Date();
+  const timeDiff = currentDate.getTime() - referenceDate.getTime();
+  const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
+  const weekNumber = Math.floor(daysDiff / 7);
+  const isDenominator = weekNumber % 2 === 1;
+  
+  return {
+    weekNumber: weekNumber + 1,
+    isDenominator,
+    weekType: isDenominator ? 'Знаменатель' : 'Числитель'
+  };
+}
+
 export default function App() {
   const [isLight, setIsLight] = useState(false);
   const [currentHighlights, setCurrentHighlights] = useState<Record<string, string | null>>({});
+  const [isDenominator, setIsDenominator] = useState(getCurrentWeekType());
 
   const storageKey = 'schedule_theme';
-  const isDenominator = true;
 
   useEffect(() => {
     const stored = localStorage.getItem(storageKey);
     const nextIsLight = stored === 'light';
     setIsLight(nextIsLight);
     document.body.classList.toggle('light', nextIsLight);
+  }, []);
+
+  useEffect(() => {
+    const updateWeekType = () => {
+      const newIsDenominator = getCurrentWeekType();
+      setIsDenominator(newIsDenominator);
+
+      const weekInfo = getWeekInfo();
+      console.log(`Неделя ${weekInfo.weekNumber}: ${weekInfo.weekType}`, weekInfo);
+    };
+
+    updateWeekType();
+
+    const now = new Date();
+    const tomorrow = new Date(now);
+    tomorrow.setDate(tomorrow.getDate() + 1);
+    tomorrow.setHours(0, 0, 0, 0);
+    const msUntilMidnight = tomorrow.getTime() - now.getTime();
+
+    const midnightTimeout = setTimeout(() => {
+      updateWeekType();
+      const dailyInterval = setInterval(updateWeekType, 24 * 60 * 60 * 1000);
+      return () => clearInterval(dailyInterval);
+    }, msUntilMidnight);
+
+    return () => clearTimeout(midnightTimeout);
   }, []);
 
   const toggleTheme = () => {
@@ -199,14 +252,14 @@ export default function App() {
 
   return (
     <div className="main">
-      <div className="block-one-day" style={{ marginBottom: '-6px' }}>
-        <div className="list-blocks">
+      <div className="block-one-day">
+        <ThemeSwitcher onToggle={toggleTheme} isLight={isLight} />
+        <div className="list-blocks" style={{justifyContent: 'center'}}>
           <div className="header">
-            <ThemeSwitcher onToggle={toggleTheme} isLight={isLight} />
-            <p className="title">{scheduleData.header.titles[0]}</p>
-            <p className="title">{scheduleData.header.titles[1]}</p>
+            <p className={`title ${!isDenominator ? 'current-week' : ''}`}>{scheduleData.header.titles[0]}</p>
+            <p className={`title ${isDenominator ? 'current-week' : ''}`}>{scheduleData.header.titles[1]}</p>
             {/* костыль для равного расстояния в хедере */}
-            <div style={{ minWidth: '48px' }}/>
+            <div style={{ minWidth: '45px' }}/>
           </div>
         </div>
       </div>

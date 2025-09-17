@@ -62,17 +62,14 @@ body.light .lucide-moon-icon { display: inline; }
 body.light .lucide-sun-medium-icon { display: none; }
 
 .lec{
-  font-weight: 500;
   color: var(--lec);
 }
 
 .upr {
-  font-weight: 500;
   color: var(--upr);
 }
 
 .lab {
-  font-weight: 500;
   color: var(--lab);
 }
 
@@ -92,6 +89,16 @@ body.light .lucide-sun-medium-icon { display: none; }
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.title.current-week {
+  font-weight: 600;
+  text-shadow: 0 0 16px rgba(255, 255, 255, 0.5);
+  opacity: 1;
+}
+
+.title:not(.current-week) {
+  opacity: 0.4;
 }
 
 .header {
@@ -127,6 +134,7 @@ body.light .lucide-sun-medium-icon { display: none; }
   flex-direction: column;
   justify-content: space-between;
   gap: 14px;
+  font-weight: 500;
 }
 
 .block-merged {
@@ -140,6 +148,7 @@ body.light .lucide-sun-medium-icon { display: none; }
   flex-wrap: wrap;
   gap: 4px;
   color: inherit;
+  font-weight: 300;
 }
 
 .block-one-day {

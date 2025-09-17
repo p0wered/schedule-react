@@ -27,3 +27,4 @@ npm install
 npm run dev
 ```
 
+### Структуру расписания настраивать в [App.tsx](src/App.tsx)
