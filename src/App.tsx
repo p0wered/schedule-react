@@ -31,7 +31,7 @@ const scheduleData: ScheduleData = {
         },
         {
           leftDiscipline: { type: 'upr', name: 'ПиЗУ ИТ-проектами', teacher: 'Таганов А.И', room: '23 БИ' },
-          rightDiscipline: { type: 'lec', name: 'ОКиНПС', teacher: 'Бодрова И.В', room: '260' },
+          rightDiscipline: { type: 'lec', name: 'ПиЗУ ИТ-проектами', teacher: 'Таганов А.И', room: '23 БИ' },
           time: '15:20 - 16:55',
         },
       ],
