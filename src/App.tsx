@@ -20,18 +20,18 @@ const scheduleData: ScheduleData = {
       name: 'Понедельник',
       pairs: [
         {
-          leftDiscipline: { type: 'lec', name: 'ПиЗУ ИТ-проектами', teacher: 'Таганов А.И', room: '23 БИ' },
-          rightDiscipline: undefined,
+          leftDiscipline: { type: 'lab', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '12 БИ' },
+          rightDiscipline: { type: 'upr', name: 'Защита информации', teacher: 'Крошилина С.В', room: '206-3' },
           time: '11:40 - 13:15',
         },
         {
-          leftDiscipline: { type: 'upr', name: 'ОКиНПС', teacher: 'Бодрова И.В', room: '260' },
-          rightDiscipline: { type: 'lec', name: 'CASE-ТИ', teacher: 'Таганов А.И', room: '23 БИ' },
+          leftDiscipline: { type: 'lab', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '12 БИ' },
+          rightDiscipline: { type: 'lec', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '23 БИ' },
           time: '13:35 - 15:10',
         },
         {
-          leftDiscipline: { type: 'upr', name: 'ПиЗУ ИТ-проектами', teacher: 'Таганов А.И', room: '23 БИ' },
-          rightDiscipline: { type: 'lec', name: 'ПиЗУ ИТ-проектами', teacher: 'Таганов А.И', room: '23 БИ' },
+          leftDiscipline: { type: 'lec', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '260' },
+          rightDiscipline: { type: 'lab', name: 'Защита информации', teacher: 'Крошилина С.В, Тишкина В.В', room: '206-3' },
           time: '15:20 - 16:55',
         },
       ],
@@ -40,23 +40,23 @@ const scheduleData: ScheduleData = {
       name: 'Вторник',
       pairs: [
         {
-          leftDiscipline: { type: 'lec', name: 'СиАОД', teacher: 'Скворцов С.В', room: '301' },
-          rightDiscipline: undefined,
+          leftDiscipline: { type: 'lab', name: 'Защита информации', teacher: 'Крошилина С.В, Тишкина В.В', room: '106' },
+          rightDiscipline: { type: 'lec', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '333' },
           time: '11:40 - 13:15',
         },
         {
-          leftDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А, Цыцына М.И', room: '414' },
-          rightDiscipline: { type: 'lec', name: 'ОКиНПС', teacher: 'Бодрова И.В', room: '260' },
+          leftDiscipline: { type: 'lec', name: 'Защита информации', teacher: 'Крошилина С.В', room: '324' },
+          rightDiscipline: { type: 'lec', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
           time: '13:35 - 15:10',
         },
         {
-          leftDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А, Цыцына М.И', room: '414' },
-          rightDiscipline: { type: 'lec', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '333' },
+          leftDiscipline: { type: 'lec', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '333' },
+          rightDiscipline: { type: 'lec', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '23 БИ' },
           time: '15:20 - 16:55',
         },
         {
-          leftDiscipline: undefined,
-          rightDiscipline: { type: 'upr', name: 'CASE-ТИ', teacher: 'Таганов А.И', room: '21 БИ' },
+          leftDiscipline: { type: 'upr', name: 'Защита информации', teacher: 'Крошилина С.В', room: '110' },
+          rightDiscipline: { type: 'upr', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '23 БИ' },
           time: '17:05 - 18:40',
         },
       ],
@@ -65,72 +65,52 @@ const scheduleData: ScheduleData = {
       name: 'Четверг',
       pairs: [
         {
-          leftDiscipline: { type: 'lec', name: 'ОКиНПС', teacher: 'Бодрова И.В', room: '260' },
+          leftDiscipline: { type: 'upr', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
           rightDiscipline: undefined,
           time: '11:40 - 13:15',
         },
         {
-          leftDiscipline: { type: 'lec', name: 'CASE-ТИ', teacher: 'Таганов А.И', room: '23 БИ' },
-          rightDiscipline: { type: 'lab', name: 'ОКиНПС', teacher: 'Бодрова И.В', room: '260' },
+          leftDiscipline: { type: 'lec', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
+          rightDiscipline: { type: 'lec', name: 'Защита информации', teacher: 'Крошилина С.В', room: '358' },
           time: '13:35 - 15:10',
         },
         {
-          leftDiscipline: { type: 'lab', name: 'CASE-ТИ', teacher: 'Таганов А.И', room: '23 БИ' },
-          rightDiscipline: { type: 'lab', name: 'ОКиНПС', teacher: 'Бодрова И.В', room: '260' },
+          leftDiscipline: { type: 'lec', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '260' },
+          rightDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '414' },
           time: '15:20 - 16:55',
         },
         {
-          leftDiscipline: { type: 'lab', name: 'CASE-ТИ', teacher: 'Таганов А.И', room: '23 БИ' },
-          rightDiscipline: undefined,
+          leftDiscipline: { type: 'upr', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '260' },
+          rightDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '414' },
           time: '17:05 - 18:40',
         },
+        {
+          leftDiscipline: undefined,
+          rightDiscipline: { type: 'upr', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
+          time: '18:50 - 20:15',
+        }
       ],
     },
     {
       name: 'Пятница',
       pairs: [
         {
-          leftDiscipline: undefined,
-          rightDiscipline: { type: 'upr', name: 'СиАОД', teacher: 'Скворцов С.В', room: '157а' },
-          time: '11:40 - 13:15',
-        },
-        {
-          leftDiscipline: { type: 'lec', name: 'МиТПИ', teacher: 'Васильев Е.П', room: '23 БИ', isMerged: true },
-          rightDiscipline: undefined,
+          leftDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '260' },
+          rightDiscipline: { type: 'lec', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '337' },
           time: '13:35 - 15:10',
         },
         {
           leftDiscipline: { type: 'lec', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '333' },
-          rightDiscipline: { type: 'upr', name: 'ОКиНПС', teacher: 'Бодрова И.В', room: '260' },
+          rightDiscipline: undefined,
           time: '15:20 - 16:55',
         },
         {
-          leftDiscipline: { type: 'lab', name: 'МиТПИ', teacher: 'Васильев Е.П', room: '21 БИ' },
-          rightDiscipline: { type: 'upr', name: 'МиТПИ', teacher: 'Васильев Е.П', room: '21 БИ' },
-          time: '17:05 - 18:40',
-        },
-        {
-          leftDiscipline: { type: 'lab', name: 'МиТПИ', teacher: 'Васильев Е.П', room: '21 БИ' },
+          leftDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '260' },
           rightDiscipline: undefined,
-          time: '18:50 - 20:15',
-        },
+          time: '17:05 - 18:40',
+        }
       ],
-    },
-    {
-      name: 'Суббота',
-      pairs: [
-        {
-          leftDiscipline: { type: 'lec', name: 'Методы ИИ', teacher: undefined, room: '203' },
-          rightDiscipline: { type: 'upr', name: 'Методы ИИ', teacher: undefined, room: '111а' },
-          time: '9:55 - 11:30',
-        },
-        {
-          leftDiscipline: { type: 'upr', name: 'Методы ИИ', teacher: undefined, room: '203' },
-          rightDiscipline: { type: 'lec', name: 'СиАОД', teacher: 'Скворцов С.В', room: '301' },
-          time: '11:40 - 13:15',
-        },
-      ],
-    },
+    }
   ],
 };
 
@@ -141,7 +121,7 @@ function parseTimeToMinutes(timeStr: string): number {
 
 // функция для определения типа недели
 function getCurrentWeekType(): boolean {
-  const referenceDate = new Date('2025-09-01'); // опорная дата - начало семестра, всегда числитель
+  const referenceDate = new Date('2026-02-09'); // опорная дата - начало семестра, всегда числитель
   const currentDate = new Date();
   
   const timeDiff = currentDate.getTime() - referenceDate.getTime();
@@ -152,7 +132,7 @@ function getCurrentWeekType(): boolean {
 }
 
 function getWeekInfo(): { weekNumber: number; isDenominator: boolean; weekType: string } {
-  const referenceDate = new Date('2024-09-01');
+  const referenceDate = new Date('2026-02-09');
   const currentDate = new Date();
   const timeDiff = currentDate.getTime() - referenceDate.getTime();
   const daysDiff = Math.floor(timeDiff / (1000 * 60 * 60 * 24));
