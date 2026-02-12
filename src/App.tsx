@@ -20,7 +20,7 @@ const scheduleData: ScheduleData = {
       name: 'Понедельник',
       pairs: [
         {
-          leftDiscipline: { type: 'lab', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '12 БИ' },
+          leftDiscipline: undefined,
           rightDiscipline: { type: 'upr', name: 'Защита информации', teacher: 'Крошилина С.В', room: '206-3' },
           time: '11:40 - 13:15',
         },
@@ -83,11 +83,6 @@ const scheduleData: ScheduleData = {
           leftDiscipline: { type: 'upr', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '260' },
           rightDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '414' },
           time: '17:05 - 18:40',
-        },
-        {
-          leftDiscipline: undefined,
-          rightDiscipline: { type: 'upr', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
-          time: '18:50 - 20:15',
         }
       ],
     },
