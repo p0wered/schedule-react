@@ -20,18 +20,18 @@ const scheduleData: ScheduleData = {
       name: 'Понедельник',
       pairs: [
         {
-          leftDiscipline: undefined,
+          leftDiscipline: { type: 'lab', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
           rightDiscipline: { type: 'upr', name: 'Защита информации', teacher: 'Крошилина С.В', room: '206-3' },
           time: '11:40 - 13:15',
         },
         {
-          leftDiscipline: { type: 'lab', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '12 БИ' },
+          leftDiscipline: { type: 'lab', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
           rightDiscipline: { type: 'lec', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '23 БИ' },
           time: '13:35 - 15:10',
         },
         {
-          leftDiscipline: { type: 'lec', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '260' },
-          rightDiscipline: { type: 'lab', name: 'Защита информации', teacher: 'Крошилина С.В, Тишкина В.В', room: '206-3' },
+          leftDiscipline: { type: 'lec', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '23 БИ' },
+          rightDiscipline: { type: 'lab', name: 'Защита информации', teacher: 'Крошилина С.В', room: '206-3' },
           time: '15:20 - 16:55',
         },
       ],
@@ -40,7 +40,7 @@ const scheduleData: ScheduleData = {
       name: 'Вторник',
       pairs: [
         {
-          leftDiscipline: { type: 'lab', name: 'Защита информации', teacher: 'Крошилина С.В, Тишкина В.В', room: '106' },
+          leftDiscipline: { type: 'lab', name: 'Защита информации', teacher: 'Крошилина С.В', room: '106' },
           rightDiscipline: { type: 'lec', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '333' },
           time: '11:40 - 13:15',
         },
@@ -83,6 +83,11 @@ const scheduleData: ScheduleData = {
           leftDiscipline: { type: 'upr', name: 'CALS-технологии', teacher: 'Таганов А.И', room: '260' },
           rightDiscipline: { type: 'lab', name: 'Web-технологии', teacher: 'Наумов Д.А', room: '414' },
           time: '17:05 - 18:40',
+        },
+        {
+          leftDiscipline: undefined,
+          rightDiscipline: { type: 'upr', name: 'Мультимедийные технологии', teacher: 'Поборуева М.С', room: '260' },
+          time: '18:50 - 20:15',
         }
       ],
     },
