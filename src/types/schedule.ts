@@ -4,7 +4,7 @@ export interface Discipline {
     type?: DisciplineType;
     name: string;
     teacher?: string;
-    room: string;
+    room?: string;
     isMerged?: boolean;
 }
 
@@ -25,5 +25,4 @@ export interface ScheduleData {
     };
     days: Day[];
 }
-
 

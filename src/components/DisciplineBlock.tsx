@@ -4,7 +4,7 @@ interface DisciplineBlockProps {
     type?: DisciplineType;
     discipline: string;
     teacher?: string;
-    room: string;
+    room?: string;
     isUnused?: boolean;
     isMerged?: boolean;
     currentType?: string | null;
@@ -42,10 +42,12 @@ export default function DisciplineBlock({
             <p>
                 {typeSpan} {discipline}
             </p>
-            <div className="block-discipline-inner">
-                {teacher && <p>{teacher},</p>}
-                <p>а. {room}</p>
-            </div>
+            {(teacher || room) && (
+                <div className="block-discipline-inner">
+                    {teacher && <p>{teacher},</p>}
+                    {room && <p>а. {room}</p>}
+                </div>
+            )}
         </div>
     );
 }
