@@ -1,5 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <rect width="64" height="64" rx="14" fill="#272727"/>
-  <path d="M18 14v8M46 14v8M14 26h36M18 18h28a4 4 0 0 1 4 4v28H14V22a4 4 0 0 1 4-4Z" fill="none" stroke="#a6edff" stroke-width="4" stroke-linecap="round"/>
-  <path d="M22 34h8v6h-8zm12 0h8v6h-8zM22 43h8v3h-8z" fill="#aae769"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <style>
+    .frame { stroke: #1d1d1f; }
+    .slot { fill: #007aff; }
+
+    @media (prefers-color-scheme: dark) {
+      .frame { stroke: #f5f5f7; }
+      .slot { fill: #0a84ff; }
+    }
+  </style>
+
+  <path
+    class="frame"
+    d="M18 13v8m28-8v8M14 25h36M18 17h28a6 6 0 0 1 6 6v27a5 5 0 0 1-5 5H17a5 5 0 0 1-5-5V23a6 6 0 0 1 6-6Z"
+    stroke-width="5"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+  <rect class="slot" x="20" y="33" width="24" height="5" rx="2.5" />
+  <rect class="slot" x="20" y="43" width="16" height="5" rx="2.5" opacity=".62" />
 </svg>
