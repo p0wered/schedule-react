@@ -1,10 +1,35 @@
 <!doctype html>
-<html lang="en">
+<html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/x-icon" href="https://upload.wikimedia.org/wikipedia/ru/4/47/RGRTU_logo.png">
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Расписание 2415</title>
+    <script>
+      (() => {
+        const storageKey = 'schedule:theme:v1';
+        let theme = null;
+
+        try {
+          const storedTheme = localStorage.getItem(storageKey);
+          const legacyTheme = localStorage.getItem('schedule_theme');
+          theme = storedTheme === 'light' || storedTheme === 'dark'
+            ? storedTheme
+            : legacyTheme;
+        } catch {
+          // The system preference remains available when storage is blocked.
+        }
+
+        if (theme !== 'light' && theme !== 'dark') {
+          theme = typeof matchMedia === 'function' && matchMedia('(prefers-color-scheme: light)').matches
+            ? 'light'
+            : 'dark';
+        }
+
+        document.documentElement.classList.toggle('light', theme === 'light');
+        document.documentElement.style.colorScheme = theme;
+      })();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">

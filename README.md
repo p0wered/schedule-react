@@ -1,30 +1,59 @@
 # Расписание
 
-## Конфигурация
+Небольшое React-приложение для отображения расписания по числителю и знаменателю.
 
-```React 19.1.1```
-```Vite 7.1.2```
-```TypeScript 5.8.3```
+## Стек
 
-## Как развернуть локально?
+- React 19
+- Vite 7
+- TypeScript 5.8
 
-### Установить Node.js:
+## Локальный запуск
 
-https://nodejs.org/en/download
+Требуется актуальная LTS-версия [Node.js](https://nodejs.org/en/download).
 
-### Клонировать проект
 ```shell
 git clone https://github.com/p0wered/schedule-react.git
-```
-
-### Установить модули
-```shell
+cd schedule-react
 npm install
-```
-
-### Запустить локально
-```shell
 npm run dev
 ```
 
-### Структуру расписания настраивать в [App.tsx](src/App.tsx). Также, не забудьте указать дату начала семестра в формате ГГГГ-ДД-ММ в строках 144 и 155.
+## Команды
+
+```shell
+npm run dev        # локальный сервер
+npm run typecheck  # проверка TypeScript
+npm run lint       # статический анализ
+npm run test       # модульные и компонентные тесты
+npm run build      # production-сборка
+```
+
+## Настройка расписания
+
+Данные находятся в [`src/data/schedule.ts`](src/data/schedule.ts). Дата начала семестра задаётся без неоднозначного нулевого месяца:
+
+```ts
+semesterStart: { year: 2026, month: 8, day: 31 }
+```
+
+Для пары, которая различается по неделям, используется вариант `alternating`:
+
+```ts
+schedule: {
+  kind: 'alternating',
+  numerator: { type: 'lec', name: 'Дисциплина' },
+  denominator: { type: 'lab', name: 'Дисциплина' },
+}
+```
+
+Для пары, которая проходит каждую неделю:
+
+```ts
+schedule: {
+  kind: 'every-week',
+  discipline: { type: 'upr', name: 'Практика' },
+}
+```
+
+Каждая пара должна иметь стабильный уникальный `id` в пределах расписания.

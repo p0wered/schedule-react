@@ -1,53 +1,61 @@
-import DisciplineBlock from './DisciplineBlock';
+import type { ActiveLesson, Discipline, DisciplineType, Pair, WeekParity } from '../types/schedule';
+import DisciplineCard, {
+  EmptyDisciplineSlot,
+  EveryWeekDisciplineCard,
+} from './DisciplineBlock';
 import TimeBlock from './TimeBlock';
-import type { Discipline } from '../types/schedule';
 
-interface PairProps {
-    leftDiscipline?: Discipline;
-    rightDiscipline?: Discipline;
-    time: string;
-    currentType?: string | null;
-    isDenominator: boolean;
+interface PairBlockProps {
+  pair: Pair;
+  activeLesson: ActiveLesson | null;
 }
 
-export default function PairBlock({ 
-    leftDiscipline, 
-    rightDiscipline, 
-    time, 
-    currentType, 
-    isDenominator 
-}: PairProps) {
-    const leftCurrentType = currentType && (!rightDiscipline || !isDenominator) ? currentType : null;
-    const rightCurrentType = currentType && rightDiscipline && isDenominator ? currentType : null;
+function AlternatingSlot({
+  discipline,
+  parity,
+  activeLesson,
+}: {
+  discipline?: Discipline;
+  parity: WeekParity;
+  activeLesson: ActiveLesson | null;
+}) {
+  if (!discipline) return <EmptyDisciplineSlot />;
 
-    const showLeftBlock = !rightDiscipline?.isMerged;
-    const showRightBlock = !leftDiscipline?.isMerged;
+  const currentType: DisciplineType | undefined = activeLesson?.slot === parity
+    ? activeLesson.type
+    : undefined;
+
+  return <DisciplineCard discipline={discipline} currentType={currentType} />;
+}
+
+export default function PairBlock({ pair, activeLesson }: PairBlockProps) {
+  if (pair.schedule.kind === 'every-week') {
+    const currentType = activeLesson?.slot === 'every-week' ? activeLesson.type : undefined;
 
     return (
-        <div className="block-pair">
-            {showLeftBlock && (
-                <DisciplineBlock
-                    type={leftDiscipline?.type}
-                    discipline={leftDiscipline?.name || ''}
-                    teacher={leftDiscipline?.teacher}
-                    room={leftDiscipline?.room || ''}
-                    isUnused={!leftDiscipline}
-                    isMerged={leftDiscipline?.isMerged || false}
-                    currentType={leftCurrentType}
-                />
-            )}
-            {showRightBlock && (
-                <DisciplineBlock
-                    type={rightDiscipline?.type}
-                    discipline={rightDiscipline?.name || ''}
-                    teacher={rightDiscipline?.teacher}
-                    room={rightDiscipline?.room || ''}
-                    isUnused={!rightDiscipline}
-                    isMerged={rightDiscipline?.isMerged || false}
-                    currentType={rightCurrentType}
-                />
-            )}
-            <TimeBlock time={time} />
-        </div>
+      <div className="block-pair">
+        <EveryWeekDisciplineCard
+          discipline={pair.schedule.discipline}
+          currentType={currentType}
+        />
+        <TimeBlock time={pair.time} />
+      </div>
     );
+  }
+
+  return (
+    <div className="block-pair">
+      <AlternatingSlot
+        discipline={pair.schedule.numerator}
+        parity="numerator"
+        activeLesson={activeLesson}
+      />
+      <AlternatingSlot
+        discipline={pair.schedule.denominator}
+        parity="denominator"
+        activeLesson={activeLesson}
+      />
+      <TimeBlock time={pair.time} />
+    </div>
+  );
 }

@@ -1,53 +1,61 @@
-import type { DisciplineType } from '../types/schedule';
+import type { Discipline, DisciplineType } from '../types/schedule';
 
-interface DisciplineBlockProps {
-    type?: DisciplineType;
-    discipline: string;
-    teacher?: string;
-    room?: string;
-    isUnused?: boolean;
-    isMerged?: boolean;
-    currentType?: string | null;
+const TYPE_LABELS: Record<DisciplineType, string> = {
+  lec: 'Лек.',
+  upr: 'Упр.',
+  lab: 'Лаб.',
+};
+
+interface DisciplineCardProps {
+  discipline: Discipline;
+  currentType?: DisciplineType;
 }
 
-export default function DisciplineBlock({
-    type,
-    discipline,
-    teacher,
-    room,
-    isUnused = false,
-    isMerged = false,
-    currentType = null,
-}: DisciplineBlockProps) {
-    const typeSpan = type ? (
-        <span className={type}>
-            {type === 'lec' ? 'Лек.' : type === 'upr' ? 'Упр.' : 'Лаб.'}
-        </span>
-    ) : null;
+function getCurrentClass(currentType?: DisciplineType): string | undefined {
+  return currentType ? `current-${currentType}` : undefined;
+}
 
-    const currentClass = currentType ? `current-${currentType}` : undefined;
-    const blockClasses = [
-        'block',
-        'block-discipline',
-        isMerged ? 'block-merged' : undefined,
-        currentClass,
-    ].filter(Boolean).join(' ');
-
-    if (isUnused) {
-        return <div className={[ 'block', 'block-unused', currentClass ].filter(Boolean).join(' ')} />;
-    }
-
-    return (
-        <div className={blockClasses}>
-            <p>
-                {typeSpan} {discipline}
-            </p>
-            {(teacher || room) && (
-                <div className="block-discipline-inner">
-                    {teacher && <p>{teacher},</p>}
-                    {room && <p>а. {room}</p>}
-                </div>
-            )}
+function DisciplineContent({ discipline }: { discipline: Discipline }) {
+  return (
+    <>
+      <p>
+        <span className={discipline.type}>{TYPE_LABELS[discipline.type]}</span>{' '}
+        {discipline.name}
+      </p>
+      {discipline.teacher || discipline.room ? (
+        <div className="block-discipline-inner">
+          {discipline.teacher ? <p>{discipline.teacher},</p> : null}
+          {discipline.room ? <p>а. {discipline.room}</p> : null}
         </div>
-    );
+      ) : null}
+    </>
+  );
+}
+
+export function EmptyDisciplineSlot() {
+  return <div className="block block-unused" aria-hidden="true" />;
+}
+
+export function EveryWeekDisciplineCard({ discipline, currentType }: DisciplineCardProps) {
+  const className = ['block', 'block-discipline', 'block-merged', getCurrentClass(currentType)]
+    .filter(Boolean)
+    .join(' ');
+
+  return (
+    <div className={className}>
+      <DisciplineContent discipline={discipline} />
+    </div>
+  );
+}
+
+export default function DisciplineCard({ discipline, currentType }: DisciplineCardProps) {
+  const className = ['block', 'block-discipline', getCurrentClass(currentType)]
+    .filter(Boolean)
+    .join(' ');
+
+  return (
+    <div className={className}>
+      <DisciplineContent discipline={discipline} />
+    </div>
+  );
 }

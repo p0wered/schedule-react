@@ -10,6 +10,8 @@ const SunIcon = () => (
         strokeLinecap="round"
         strokeLinejoin="round"
         className="lucide lucide-sun-medium-icon lucide-sun-medium"
+        aria-hidden="true"
+        focusable="false"
     >
         <circle cx="12" cy="12" r="4"/>
         <path d="M12 3v1"/>

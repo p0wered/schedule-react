@@ -1,11 +1,13 @@
+import type { TimeRange } from '../types/schedule';
+
 interface TimeBlockProps {
-    time: string;
+  time: TimeRange;
 }
 
 export default function TimeBlock({ time }: TimeBlockProps) {
-    return (
-        <div className="block-time">
-            <p>{time}</p>
-        </div>
-    );
+  return (
+    <div className="block-time">
+      <p>{time.start} - {time.end}</p>
+    </div>
+  );
 }

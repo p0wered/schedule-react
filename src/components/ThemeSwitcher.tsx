@@ -1,32 +1,25 @@
-import type { KeyboardEvent } from 'react';
-import IconSun from "../assets/IconSun.tsx";
-import IconMoon from "../assets/IconMoon.tsx";
+import IconMoon from '../assets/IconMoon';
+import IconSun from '../assets/IconSun';
+import type { Theme } from '../lib/theme';
 
 interface ThemeSwitcherProps {
-    onToggle: () => void;
-    isLight: boolean;
+  onToggle: () => void;
+  theme: Theme;
 }
 
-export default function ThemeSwitcher({ onToggle, isLight }: ThemeSwitcherProps) {
-    const handleKeyDown = (e: KeyboardEvent<HTMLDivElement>) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            onToggle();
-        }
-    };
+export default function ThemeSwitcher({ onToggle, theme }: ThemeSwitcherProps) {
+  const nextThemeLabel = theme === 'light' ? 'Включить тёмную тему' : 'Включить светлую тему';
 
-    return (
-        <div
-            className="theme-switcher"
-            role="button"
-            tabIndex={0}
-            aria-pressed={isLight}
-            aria-label="Переключить тему"
-            onClick={onToggle}
-            onKeyDown={handleKeyDown}
-        >
-            <IconSun />
-            <IconMoon />
-        </div>
-    );
+  return (
+    <button
+      type="button"
+      className="theme-switcher"
+      aria-label={nextThemeLabel}
+      title={nextThemeLabel}
+      onClick={onToggle}
+    >
+      <IconSun />
+      <IconMoon />
+    </button>
+  );
 }
