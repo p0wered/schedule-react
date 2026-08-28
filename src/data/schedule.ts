@@ -36,7 +36,7 @@ export const scheduleData = {
           id: 'tue-1850',
           schedule: {
             kind: 'alternating',
-            numerator: { type: 'lec', name: 'Управление научно-исследовательскими и опытно-конструкторскими работами', teacher: 'проф. Таганов А.И.', room: '23 B' },
+            numerator: { type: 'lec', name: 'УНИиОКР', teacher: 'проф. Таганов А.И.', room: '23 B' },
             denominator: { type: 'lec', name: 'Вычислительные системы', teacher: 'доц. Елесина С.И.', room: '337 C' },
           },
           time: { start: '18:50', end: '20:15' },
@@ -59,7 +59,7 @@ export const scheduleData = {
           id: 'wed-1705',
           schedule: {
             kind: 'alternating',
-            numerator: { type: 'lec', name: 'Аэрокосмические системы и технологии обработки информации', teacher: 'доц. Ушенкин В.А.', room: '260 C' },
+            numerator: { type: 'lec', name: 'АСиТОИ', teacher: 'доц. Ушенкин В.А.', room: '260 C' },
           },
           time: { start: '17:05', end: '18:40' },
         },
@@ -67,7 +67,7 @@ export const scheduleData = {
           id: 'wed-1850',
           schedule: {
             kind: 'alternating',
-            numerator: { type: 'lec', name: 'Технологии разработки программного обеспечения', teacher: 'доц. Громов А.Ю.', room: '448 C' },
+            numerator: { type: 'lec', name: 'Технологии разработки ПО', teacher: 'доц. Громов А.Ю.', room: '448 C' },
             denominator: { type: 'lab', name: 'Методы и технологии управления ИТ-проектами', teacher: 'проф. Таганов А.И.', room: '23 B' },
           },
           time: { start: '18:50', end: '20:15' },
@@ -112,8 +112,8 @@ export const scheduleData = {
           id: 'fri-1850',
           schedule: {
             kind: 'alternating',
-            numerator: { type: 'upr', name: 'Технологии разработки программного обеспечения', teacher: 'асс. Сидоров А.М.', room: '02/2 B' },
-            denominator: { type: 'lab', name: 'Аэрокосмические системы и технологии обработки информации', teacher: 'доц. Ушенкин В.А.', room: '260 C' },
+            numerator: { type: 'upr', name: 'Технологии разработки ПО', teacher: 'асс. Сидоров А.М.', room: '02/2 B' },
+            denominator: { type: 'lab', name: 'АСиТОИ', teacher: 'доц. Ушенкин В.А.', room: '260 C' },
           },
           time: { start: '18:50', end: '20:15' },
         },

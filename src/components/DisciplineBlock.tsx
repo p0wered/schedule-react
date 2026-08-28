@@ -37,7 +37,13 @@ export function EmptyDisciplineSlot() {
 }
 
 export function EveryWeekDisciplineCard({ discipline, currentType }: DisciplineCardProps) {
-  const className = ['block', 'block-discipline', 'block-merged', getCurrentClass(currentType)]
+  const className = [
+    'block',
+    'block-discipline',
+    'block-merged',
+    discipline.teacher ? undefined : 'block-merged-centered',
+    getCurrentClass(currentType),
+  ]
     .filter(Boolean)
     .join(' ');
 
