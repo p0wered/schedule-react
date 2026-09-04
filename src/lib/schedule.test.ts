@@ -41,6 +41,15 @@ describe('getActiveLesson', () => {
     });
   });
 
+  it('activates the rescheduled philosophy lesson on Thursday', () => {
+    expect(getActiveLesson(scheduleData, new Date(2026, 8, 10, 17, 30))).toEqual({
+      pairId: 'thu-1705',
+      slot: 'denominator',
+      type: 'upr',
+    });
+    expect(getActiveLesson(scheduleData, new Date(2026, 8, 11, 20, 30))).toBeNull();
+  });
+
   it('does not activate a numerator-only lesson on a denominator week', () => {
     expect(getActiveLesson(scheduleData, new Date(2026, 8, 8, 17, 30))).toBeNull();
   });

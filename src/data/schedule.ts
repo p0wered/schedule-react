@@ -28,7 +28,7 @@ export const scheduleData = {
           id: 'tue-1705',
           schedule: {
             kind: 'alternating',
-            numerator: { type: 'lec', name: 'Методы и технологии управления ИТ-проектами', teacher: 'проф. Таганов А.И.', room: '21 B' },
+            numerator: { type: 'lec', name: 'МиТУИП', teacher: 'проф. Таганов А.И.', room: '21 B' },
           },
           time: { start: '17:05', end: '18:40' },
         },
@@ -68,7 +68,7 @@ export const scheduleData = {
           schedule: {
             kind: 'alternating',
             numerator: { type: 'lec', name: 'Технологии разработки ПО', teacher: 'доц. Громов А.Ю.', room: '448 C' },
-            denominator: { type: 'lab', name: 'Методы и технологии управления ИТ-проектами', teacher: 'проф. Таганов А.И.', room: '23 B' },
+            denominator: { type: 'lab', name: 'МиТУИП', teacher: 'проф. Таганов А.И.', room: '23 B' },
           },
           time: { start: '18:50', end: '20:15' },
         },
@@ -83,6 +83,7 @@ export const scheduleData = {
           schedule: {
             kind: 'alternating',
             numerator: { type: 'lec', name: 'Вычислительные системы', teacher: 'доц. Елесина С.И.', room: '324 C' },
+            denominator: { type: 'upr', name: 'Современная философия и методология науки', teacher: 'доц. Щевьёв А.А.', room: '450 C' },
           },
           time: { start: '17:05', end: '18:40' },
         },
@@ -112,18 +113,10 @@ export const scheduleData = {
           id: 'fri-1850',
           schedule: {
             kind: 'alternating',
-            numerator: { type: 'upr', name: 'Технологии разработки ПО', teacher: 'асс. Сидоров А.М.', room: '02/2 B' },
+            numerator: { type: 'upr', name: 'Технологии разработки ПО', teacher: 'асс. Сидоров А.М.', room: '448 C' },
             denominator: { type: 'lab', name: 'АСиТОИ', teacher: 'доц. Ушенкин В.А.', room: '260 C' },
           },
           time: { start: '18:50', end: '20:15' },
-        },
-        {
-          id: 'fri-2025',
-          schedule: {
-            kind: 'alternating',
-            denominator: { type: 'upr', name: 'Современная философия и методология науки', teacher: 'доц. Щевьёв А.А.', room: '450 C' },
-          },
-          time: { start: '20:25', end: '21:50' },
         },
       ],
     },
@@ -148,12 +141,12 @@ export const scheduleData = {
           time: { start: '09:55', end: '11:30' },
         },
         {
-          id: 'sat-1140',
+          id: 'sat-1335',
           schedule: {
             kind: 'alternating',
             numerator: { type: 'lec', name: 'Интернет-технологии', teacher: 'доц. Гостин А.М.', room: '403 C' },
           },
-          time: { start: '11:40', end: '13:15' },
+          time: { start: '13:35', end: '15:10' },
         },
       ],
     },
