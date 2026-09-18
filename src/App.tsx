@@ -46,7 +46,7 @@ export default function App() {
         {snapshot ? (
           <p>Обновлено: <time dateTime={snapshot.updatedAt}>{new Intl.DateTimeFormat('ru-RU', {
             timeZone: 'Europe/Moscow', dateStyle: 'short', timeStyle: 'short',
-          }).format(new Date(snapshot.updatedAt))}</time> (МСК)</p>
+          }).format(new Date(snapshot.updatedAt))}</time></p>
         ) : null}
         {status === 'stale' ? <p className="schedule-error">Не удалось обновить расписание.
           {snapshot ? ' Показана последняя сохранённая версия.' : ' Сохранённого расписания пока нет.'}</p> : null}
