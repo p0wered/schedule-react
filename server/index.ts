@@ -21,7 +21,7 @@ const mime: Record<string, string> = {
 
 const server = createServer(async (request, response) => {
   const pathname = new URL(request.url ?? '/', 'http://localhost').pathname;
-  if (pathname === '/api/schedule') {
+  if (pathname === '/api/schedule' || pathname === '/api/schedule.php') {
     response.setHeader('Content-Type', 'application/json; charset=utf-8');
     response.setHeader('Cache-Control', 'no-store');
     if (request.method !== 'GET') {

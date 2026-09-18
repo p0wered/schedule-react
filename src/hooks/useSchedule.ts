@@ -13,7 +13,7 @@ function loadSaved(): ScheduleSnapshot | null {
 
 function requestSchedule(): Promise<ScheduleResponse> {
   if (!pending) {
-    pending = fetch('/api/schedule', { cache: 'no-store', signal: AbortSignal.timeout(35_000) })
+    pending = fetch(`${import.meta.env.BASE_URL}api/schedule.php`, { cache: 'no-store', signal: AbortSignal.timeout(35_000) })
       .then(async (response) => {
         if (!response.ok) throw new Error('Schedule request failed');
         const value: unknown = await response.json();

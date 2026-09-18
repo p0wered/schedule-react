@@ -48,14 +48,15 @@ export default function App() {
             timeZone: 'Europe/Moscow', dateStyle: 'short', timeStyle: 'short',
           }).format(new Date(snapshot.updatedAt))}</time> (МСК)</p>
         ) : null}
-        {status === 'loading' ? <p>Обновляем расписание…</p> : null}
         {status === 'stale' ? <p className="schedule-error">Не удалось обновить расписание.
           {snapshot ? ' Показана последняя сохранённая версия.' : ' Сохранённого расписания пока нет.'}</p> : null}
         {snapshot && !currentParity && status !== 'loading' ? (
           <p className="schedule-error">Сохранённые недели не включают текущую. Подсветка пар отключена.</p>
         ) : null}
         {status === 'stale' ? (
-          <a href="https://rasp.rsreu.ru/schedule-frame/group?faculty=4&group=2265" target="_blank" rel="noreferrer">Открыть расписание РГРТУ</a>
+          <a href="https://rasp.rsreu.ru/schedule-frame/group?faculty=4&group=2265" target="_blank" rel="noreferrer">
+            Открыть расписание РГРТУ
+          </a>
         ) : null}
       </footer>
     </main>

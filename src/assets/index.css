@@ -83,6 +83,11 @@ html.light .lucide-sun-medium-icon { display: none; }
   color: var(--lab);
 }
 
+.discipline-name {
+  text-decoration: none;
+  cursor: default;
+}
+
 .main {
   display: flex;
   flex-direction: column;
@@ -130,14 +135,15 @@ html.light .lucide-sun-medium-icon { display: none; }
   align-self: center;
   padding: 0 4px;
   font-size: 12px;
+  font-weight: 300;
   line-height: 1.6;
-  color: var(--text-color-dark);
+  color: #bebebe;
   text-align: center;
   padding-block: 8px;
 }
 
 .schedule-status a { color: inherit; }
-.schedule-error { color: var(--upr); }
+.schedule-error { color: #bebebe; }
 
 .schedule-content {
   display: flex;

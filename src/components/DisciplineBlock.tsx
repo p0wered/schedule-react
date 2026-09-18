@@ -1,4 +1,5 @@
 import type { Discipline, DisciplineType } from '../types/schedule';
+import { getDisciplineDisplayName } from '../lib/disciplineNames';
 
 const TYPE_LABELS: Record<DisciplineType, string> = {
   lec: 'Лек.',
@@ -16,11 +17,14 @@ function getCurrentClass(currentType?: DisciplineType): string | undefined {
 }
 
 function DisciplineContent({ discipline }: { discipline: Discipline }) {
+  const displayName = getDisciplineDisplayName(discipline.name);
   return (
     <>
       <p>
         <span className={discipline.type}>{TYPE_LABELS[discipline.type]}</span>{' '}
-        {discipline.name}
+        {displayName !== discipline.name ? (
+          <abbr className="discipline-name" title={discipline.name}>{displayName}</abbr>
+        ) : discipline.name}
       </p>
       {discipline.teacher || discipline.room ? (
         <div className="block-discipline-inner">

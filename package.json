@@ -13,6 +13,8 @@
     "typecheck": "tsc -b",
     "lint": "eslint . --max-warnings=0",
     "test": "vitest run",
+    "test:php": "php scripts/test-php.php",
+    "preview:php": "php -S 127.0.0.1:5174 -t dist",
     "test:watch": "vitest",
     "preview": "vite preview"
   },

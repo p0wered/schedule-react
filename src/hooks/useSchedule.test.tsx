@@ -23,7 +23,7 @@ describe('schedule loading', () => {
     const first = renderHook(() => useSchedule(), { wrapper: StrictMode });
     await waitFor(() => expect(first.result.current.status).toBe('fresh'));
     expect(fetcher).toHaveBeenCalledTimes(1);
-    expect(fetcher).toHaveBeenCalledWith('/api/schedule', expect.objectContaining({ cache: 'no-store' }));
+    expect(fetcher).toHaveBeenCalledWith('/api/schedule.php', expect.objectContaining({ cache: 'no-store' }));
     first.unmount();
     const next = renderHook(() => useSchedule());
     expect(next.result.current.snapshot?.updatedAt).toBe(response.updatedAt);

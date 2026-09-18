@@ -1,0 +1,12 @@
+Mozilla CA certificate bundle
+
+Source: https://curl.se/docs/caextract.html
+Download: https://curl.se/ca/cacert.pem
+Mozilla certificate data date: 2026-08-13
+Verified SHA-256: f66dff1bdf8f96060b8177976f8b7d9254bc89bc4db933d769f7384d28480bc9
+
+Distributed without modification under the Mozilla Public License 2.0.
+License: https://www.mozilla.org/MPL/2.0/
+The original source and conversion information are retained in cacert.pem.
+
+This bundle contains public CA certificates, not private keys.
