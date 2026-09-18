@@ -1,12 +1,19 @@
 import type {
   ActiveLesson,
   ClockTime,
+  Discipline,
   LocalDate,
   ScheduleData,
   WeekInfo,
+  WeekParity,
 } from '../types/schedule';
 
 const MILLISECONDS_PER_DAY = 24 * 60 * 60 * 1000;
+
+export function areDisciplinesEqual(first?: Discipline, second?: Discipline): boolean {
+  return !!first && !!second && first.type === second.type && first.name === second.name
+    && first.teacher === second.teacher && first.room === second.room;
+}
 
 function toCalendarDay(date: Date): number {
   return Date.UTC(date.getFullYear(), date.getMonth(), date.getDate());
@@ -42,9 +49,12 @@ export function getWeekInfo(now: Date, semesterStart: LocalDate): WeekInfo {
   };
 }
 
-export function getActiveLesson(schedule: ScheduleData, now: Date): ActiveLesson | null {
+export function getActiveLesson(schedule: ScheduleData, now: Date, parity?: WeekParity | null): ActiveLesson | null {
   const weekInfo = getWeekInfo(now, schedule.semesterStart);
-  if (weekInfo.status === 'before-semester') return null;
+  const currentParity = parity === undefined
+    ? weekInfo.status === 'active' ? weekInfo.parity : null
+    : parity;
+  if (!currentParity) return null;
 
   const currentDay = schedule.days.find((day) => day.weekday === now.getDay());
   if (!currentDay) return null;
@@ -65,12 +75,12 @@ export function getActiveLesson(schedule: ScheduleData, now: Date): ActiveLesson
     };
   }
 
-  const discipline = pair.schedule[weekInfo.parity];
+  const discipline = pair.schedule[currentParity];
   if (!discipline) return null;
 
   return {
     pairId: pair.id,
-    slot: weekInfo.parity,
+    slot: currentParity,
     type: discipline.type,
   };
 }

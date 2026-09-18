@@ -1,0 +1,11 @@
+services:
+  schedule:
+    build: .
+    ports:
+      - "5173:5173"
+    volumes:
+      - schedule-cache:/app/.cache
+    restart: unless-stopped
+
+volumes:
+  schedule-cache:

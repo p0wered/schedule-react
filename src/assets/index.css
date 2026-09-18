@@ -124,6 +124,58 @@ html.light .lucide-sun-medium-icon { display: none; }
   gap: 6px;
 }
 
+.schedule-status {
+  width: 100%;
+  max-width: 620px;
+  align-self: center;
+  padding: 0 4px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: var(--text-color-dark);
+  text-align: center;
+  padding-block: 8px;
+}
+
+.schedule-status a { color: inherit; }
+.schedule-error { color: var(--upr); }
+
+.schedule-content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skeleton-lines {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+
+.skeleton-bar {
+  display: block;
+  height: 10px;
+  border-radius: 4px;
+  background-color: var(--divider);
+  animation: skeleton-pulse 1.4s cubic-bezier(0.45, 0, 0.55, 1) infinite;
+}
+
+.skeleton-name { width: 86%; height: 12px; }
+.skeleton-name-short { width: 58%; height: 12px; }
+.skeleton-details { width: 65%; }
+.skeleton-weekday { min-width: 34px; }
+.skeleton-weekday .skeleton-bar { width: 10px; height: 55%; max-height: 80px; }
+.skeleton-time { flex-direction: column; gap: 20px; }
+.skeleton-time .skeleton-bar { width: 30px; }
+
+@keyframes skeleton-pulse {
+  0%, 100% { opacity: 0.45; }
+  50% { opacity: 0.9; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton-bar { animation: none; opacity: 0.65; }
+}
+
 .block {
   width: 100%;
   background-color: var(--bg-block);

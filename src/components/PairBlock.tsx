@@ -4,6 +4,7 @@ import DisciplineCard, {
   EveryWeekDisciplineCard,
 } from './DisciplineBlock';
 import TimeBlock from './TimeBlock';
+import { areDisciplinesEqual } from '../lib/schedule';
 
 interface PairBlockProps {
   pair: Pair;
@@ -29,19 +30,25 @@ function AlternatingSlot({
 }
 
 export default function PairBlock({ pair, activeLesson }: PairBlockProps) {
-  if (pair.schedule.kind === 'every-week') {
-    const currentType = activeLesson?.slot === 'every-week' ? activeLesson.type : undefined;
+  const mergedDiscipline = pair.schedule.kind === 'every-week' ? pair.schedule.discipline
+    : areDisciplinesEqual(pair.schedule.numerator, pair.schedule.denominator)
+      ? pair.schedule.numerator : undefined;
+
+  if (mergedDiscipline) {
+    const currentType = activeLesson?.type;
 
     return (
       <div className="block-pair">
         <EveryWeekDisciplineCard
-          discipline={pair.schedule.discipline}
+          discipline={mergedDiscipline}
           currentType={currentType}
         />
         <TimeBlock time={pair.time} />
       </div>
     );
   }
+
+  if (pair.schedule.kind === 'every-week') return null;
 
   return (
     <div className="block-pair">

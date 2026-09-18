@@ -26,4 +26,8 @@ export default tseslint.config(
       ...reactHooks.configs.recommended.rules,
     },
   },
+  {
+    files: ['server/**/*.ts'],
+    languageOptions: { globals: globals.node },
+  },
 );
